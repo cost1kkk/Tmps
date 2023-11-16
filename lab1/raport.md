@@ -21,26 +21,43 @@
 
 
 ## Theory:
-&ensp; SOLID is a set of five object-oriented design principles intended to make software designs more maintainable, flexible, and easy to understand. The acronym stands for Single Responsibility Principle, Open-Closed Principle, Liskov Substitution Principle, Interface Segregation Principle, and Dependency Inversion Principle. Each principle addresses a specific aspect of software design, such as the organization of responsibilities, the handling of dependencies, and the design of interfaces. By following these principles, software developers can create more modular, testable, and reusable code that is easier to modify and extend over time. These principles are widely accepted and adopted in the software development community and can be applied to any object-oriented programming language.
+The SOLID principles are a set of five design principles for writing maintainable and scalable software. These principles were introduced by Robert C. Martin and are widely used in object-oriented programming. The SOLID acronym stands for:
 
+1. Single Responsibility Principle (SRP):
+   - A class should have only one reason to change, meaning that it should have only one responsibility or job.
+   - It encourages the separation of concerns, making classes more focused and easier to understand.
 
-## Implementation
+2. Open/Closed Principle (OCP):
+   - Software entities (classes, modules, functions) should be open for extension but closed for modification.
+   - You should be able to extend the behavior of a system without modifying its existing code.
+   - Achieved through the use of interfaces, abstract classes, and polymorphism.
 
-&ensp; The project is a simple library management system implemented in Python, and it adheres to the SOLID principles of object-oriented design. The project simulates a basic library system with features to add books and users and list them.
+3. Liskov Substitution Principle (LSP):
+   - Subtypes must be substitutable for their base types without altering the correctness of the program.
+   - It ensures that objects of a superclass can be replaced with objects of a subclass without affecting the program's functionality.
+
+4. Interface Segregation Principle (ISP):
+   - A class should not be forced to implement interfaces it does not use.
+   - It suggests that it's better to have several small, specific interfaces rather than a large, general-purpose one.
+
+5. Dependency Inversion Principle (DIP):
+   - High-level modules should not depend on low-level modules; both should depend on abstractions.
+   - Abstractions should not depend on details; details should depend on abstractions.
+   - It encourages the use of dependency injection, inversion of control, and programming to interfaces.
 
 ## Output:
 ```
 Books in the library:
-Mr Mercedes by Stephen King (ISBN: 978-0567839021)
-The Great Gatsby by F. Scott Fitzgerald (ISBN: 978-0743273565)
-To Kill a Mockingbird by Harper Lee (ISBN: 978-0446310789)
+Harry Potter by J. K. Rowling (ISBN: 978-0606323451)     
+Harap Alb by Ion Creanga (ISBN: 979-8985975147)
+Capra cu trei iezi by Ion Creangă (ISBN:  978-9731968865)
 
 Users of the library:
-User: john_doe (john@example.com)
-User: jane_smith (jane@example.com)
-User: smith_doe (smith@example.com)
+User: ion_da_silva (ion.dasilva@gmail.com)
+User: mircea_adidas (mircea.adidas@gmail.com)
+User: zinaida_fernandez (zinaidafernandez@gmail.com)  
 ```
 
 
 ## Conclusions / Screenshots / Results
-&ensp; In summary, this project demonstrates SOLID principles by keeping classes focused on specific responsibilities, enabling easy extension without modification, and using abstractions to reduce dependencies between components. It provides a basic foundation that can be expanded upon while maintaining good design principles.
+&ensp; In conclusion, in this project , I respected the SOLID principles 
