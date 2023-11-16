@@ -1,10 +1,4 @@
-# importing sys
-import sys
- 
-# adding domain to the system path
-sys.path.insert(1, '/home/niciu/lab1/domain')
- 
-# importing the hello
+import sys 
 from library_service import LibraryService
 
 class LibraryFactory:
