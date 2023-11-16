@@ -1,10 +1,5 @@
-# importing sys
 import sys
  
-# adding models to the system path
-sys.path.insert(1, '/home/niciu/lab1/models')
- 
-# importing the hello
 from book import Book
 from user import User
 
