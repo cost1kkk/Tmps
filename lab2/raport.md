@@ -54,7 +54,7 @@ Explanation: ComputerFactory ensures that only one instance is created by utiliz
 
 ## Code example:
 Class: ComputerFactory
-```phyton
+```python
 from domain.computer import Computer
 class ComputerFactory:
     _instance = None
@@ -82,7 +82,17 @@ The create_computer method creates and returns a Computer object.
 This ensures a single point of access for creating computers throughout the application, controlling the instantiation of the factory class.
 
 
-## Output
+Class: ComponentFactory
+```python
+class ComponentFactory:
+    def create_component(self):
+        pass
+```
+ComponentFactory defines the Factory Method create_component(), leaving the creation of components to its subclasses.
+
+This allows the system to create components without specifying their exact classes, promoting code decoupling and extensibility.
 
 ## Conclusion
+
+In summary, the Computer Configuration System project effectively applies the Factory Method for flexible component creation and a variation of the Singleton pattern for centralized instance management. The modular design ensures code flexibility and scalability. While improvements could be made, the project demonstrates the practical benefits of well-utilized design patterns in creating a robust and maintainable software structure.
 
