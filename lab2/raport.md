@@ -6,6 +6,7 @@ The Computer Configuration System is a software application designed to create a
 
 ### Use:
 The Factory Method pattern is used in the ComponentFactory
+
 The Singleton pattern is used in the ComputerFactory class
 
 
@@ -32,14 +33,22 @@ Provides an interface for creating families of related or dependent objects with
 
 
 ## Design Patterns Implemented
+
 Factory Method Pattern
+
 Class: ComponentFactory
+
 Purpose: To create objects (computer components) without specifying the exact class to instantiate.
-Explanation: The ComponentFactory class provides a method create_component() that is overridden by its subclasses (ProcessorFactory, MemoryFactory, StorageFactory). This promotes code decoupling and allows extending the system with new components without modifying existing code.
+
+Explanation: The ComponentFactory class provides a method create_component() that is overridden by its subclasses (ProcessorFactory, MemoryFactory, StorageFactory). This promotes code decoupling and allows extending the 
+system with new components without modifying existing code.
 
 Singleton Pattern
+
 Class: ComputerFactory
+
 Purpose: To restrict the instantiation of a class to a single instance and provide a global point of access to it.
+
 Explanation: ComputerFactory ensures that only one instance is created by utilizing a variation of the Singleton pattern. This ensures a single point of access for creating computers throughout the application.
 
 
@@ -59,11 +68,17 @@ class ComputerFactory:
         return Computer(processor, memory, storage)
 ```
 
+
 Explanation:
+
 ComputerFactory implements a variation of the Singleton pattern.
+
 The _instance variable ensures that only one instance of ComputerFactory is created.
+
 The __new__ method is overridden to manage the creation of the instance.
+
 The create_computer method creates and returns a Computer object.
+
 This ensures a single point of access for creating computers throughout the application, controlling the instantiation of the factory class.
 
 
