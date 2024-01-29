@@ -1,5 +1,7 @@
 # Computer Configuration System
 
+## Author: Baxanean Constantin
+
 ## Project Description
 The Computer Configuration System is a software application designed to create and manage computer configurations using a modular and extensible architecture. The system allows users to define and assemble various components, such as processors, memory, and storage, to create customized computer configurations.
 
