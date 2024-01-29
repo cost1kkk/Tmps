@@ -1,0 +1,13 @@
+{
+    "books": [
+        {
+            "title": "The Catcher in the Rye",
+            "author": "J.D. Salinger"
+        },
+        {
+            "title": "To Kill a Mockingbird",
+            "author": "Harper Lee"
+        }
+        // Add more books as needed
+    ]
+}
