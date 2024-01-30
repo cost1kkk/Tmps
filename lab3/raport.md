@@ -1,101 +1,164 @@
-# Computer Configuration System
+# Library Management System
 
 ## Author: Baxanean Constantin
 
 ## Project Description
-The Computer Configuration System is a software application designed to create and manage computer configurations using a modular and extensible architecture. The system allows users to define and assemble various components, such as processors, memory, and storage, to create customized computer configurations.
+The Library Management System is a software application designed to facilitate the management of a library's book inventory using a modular and extensible architecture. The system allows users to define and organize books, create book instances, and manage the overall library structure.
 
 
 ### Use:
-The Factory Method pattern is used in the ComponentFactory
+The project employs the Composite pattern for structuring the library component
 
-The Singleton pattern is used in the ComputerFactory class
+The Proxy pattern for managing the creation of book objects
+
+The Adapter pattern for adapting the display of library components.
 
 
 ### Theory:
-Singleton:
-Ensures a class has only one instance and provides a global point of access to it. Useful when exactly one object is needed to coordinate actions across the system.
+Composite:
+Composite is a structural design pattern that lets you compose objects into tree structures and then work with these structures as if they were individual objects. Useful when clients need to treat individual objects and compositions of objects uniformly.
 
-Builder:
-Separates the construction of a complex object from its representation, allowing the same construction process to create different representations. Useful when an object needs to be constructed with various configurations.
+Proxy:
+Proxy is a structural design pattern that lets you provide a substitute or placeholder for another object. A proxy controls access to the original object, allowing you to perform something either before or after the request gets through to the original object.
 
-Prototype:
-Creates new objects by copying an existing object, known as the prototype. Useful when the cost of creating an object is more expensive than copying an existing one.
-
-Object Pooling:
-Manages a pool of reusable objects, reducing the overhead of creating and destroying instances. Useful when creating and initializing objects is resource-intensive.
-
-Factory Method:
-Defines an interface for creating an object, but leaves the choice of its type to the subclasses, creating instances of a class in a method. Useful when a class cannot anticipate the class of objects it must create.
-
-Abstract Factory:
-Provides an interface for creating families of related or dependent objects without specifying their concrete classes. Useful when a system needs to be independent of how its objects are created, composed, and represented
+Adapter:
+Adapter is a structural design pattern that allows objects with incompatible interfaces to collaborate. Useful when you want to make existing classes work with others without modifying their source code.
 
 
 
 
 ## Design Patterns Implemented
 
-Factory Method Pattern
+Composite Design Pattern
 
-Class: ComponentFactory
+Class: LibraryComponent, Book, LibraryContainer
 
-Purpose: To create objects (computer components) without specifying the exact class to instantiate.
+Purpose: To represent a hierarchical structure of library components.
 
-Explanation: The ComponentFactory class provides a method create_component() that is overridden by its subclasses (ProcessorFactory, MemoryFactory, StorageFactory). This promotes code decoupling and allows extending the 
-system with new components without modifying existing code.
+Explanation: LibraryComponent is an abstract class that declares the common interface for all library components. Book is a leaf node representing individual books. LibraryContainer is a composite node representing containers for other library components.
 
-Singleton Pattern
+Proxy Design Pattern
 
-Class: ComputerFactory
+Class: BookFactory
 
-Purpose: To restrict the instantiation of a class to a single instance and provide a global point of access to it.
+Purpose: To shield the client from the complexities of book creation.
 
-Explanation: ComputerFactory ensures that only one instance is created by utilizing a variation of the Singleton pattern. This ensures a single point of access for creating computers throughout the application.
+Explanation: BookFactory acts as a proxy, providing a simple interface for creating book objects. It shields the client from the complex book creation logic, maintaining a separation of concerns.
 
+Adapter Design Pattern
+
+Class: LibraryAdapter
+
+Purpose: To adapt the display of library components.
+
+Explanation: LibraryAdapter adapts a LibraryComponent to a different representation. It takes an existing LibraryComponent and adapts its display method, demonstrating flexibility in displaying library components differently.
 
 ## Code example:
-Class: ComputerFactory
+Class: BookFactory
 ```python
-from domain.computer import Computer
-class ComputerFactory:
-    _instance = None
+from domain.book import Book
 
-    def __new__(cls):
-        if not cls._instance:
-            cls._instance = super(ComputerFactory, cls).__new__(cls)
-        return cls._instance
+class BookFactory:
+    @staticmethod
+    def create_book(title, author):
+        # Simulate complex book creation logic, perhaps involving a database
+        return Book(title, author)
 
-    def create_computer(self, processor, memory, storage):
-        return Computer(processor, memory, storage)
 ```
 
 
 Explanation:
 
-ComputerFactory implements a variation of the Singleton pattern.
 
-The _instance variable ensures that only one instance of ComputerFactory is created.
+Certainly! Below is a report on your Computer Configuration System project following the same structure:
 
-The __new__ method is overridden to manage the creation of the instance.
+Library Management System
+Author: Baxanean Constantin
+Project Description
+The Library Management System is a software application designed to facilitate the management of a library's book inventory using a modular and extensible architecture. The system allows users to define and organize books, create book instances, and manage the overall library structure.
 
-The create_computer method creates and returns a Computer object.
+Use:
+The project employs the Composite pattern for structuring the library components, the Proxy pattern for managing the creation of book objects, and the Adapter pattern for adapting the display of library components.
 
-This ensures a single point of access for creating computers throughout the application, controlling the instantiation of the factory class.
+Theory:
+Composite:
+Enables the creation of complex structures by treating individual objects and compositions of objects uniformly. Useful when clients need to treat individual objects and compositions of objects uniformly.
 
+Proxy:
+Provides a surrogate or placeholder for another object to control access to it. Useful when you want to add a level of indirection to control access to an object.
 
-Class: ComponentFactory
+Adapter:
+Allows the interface of an existing class to be used as another interface. Useful when you want to make existing classes work with others without modifying their source code.
+
+Design Patterns Implemented
+Composite Design Pattern
+
+Class: LibraryComponent, Book, LibraryContainer
+
+Purpose: To represent a hierarchical structure of library components.
+
+Explanation: LibraryComponent is an abstract class that declares the common interface for all library components. Book is a leaf node representing individual books. LibraryContainer is a composite node representing containers for other library components.
+
+Proxy Design Pattern
+
+Class: BookFactory
+
+Purpose: To shield the client from the complexities of book creation.
+
+Explanation: BookFactory acts as a proxy, providing a simple interface for creating book objects. It shields the client from the complex book creation logic, maintaining a separation of concerns.
+
+Adapter Design Pattern
+
+Class: LibraryAdapter
+
+Purpose: To adapt the display of library components.
+
+Explanation: LibraryAdapter adapts a LibraryComponent to a different representation. It takes an existing LibraryComponent and adapts its display method, demonstrating flexibility in displaying library components differently.
+
+Code example:
+Class: BookFactory
 ```python
-class ComponentFactory:
-    def create_component(self):
-        pass
+from domain.book import Book
+
+class BookFactory:
+    @staticmethod
+    def create_book(title, author):
+        # Simulate complex book creation logic, perhaps involving a database
+        return Book(title, author)
 ```
-ComponentFactory defines the Factory Method create_component(), leaving the creation of components to its subclasses.
+        
+Explanation:
+BookFactory serves as a proxy by providing a simple interface to create book objects. It shields the client from the complexity of book creation logic, showcasing the Proxy pattern.
 
-This allows the system to create components without specifying their exact classes, promoting code decoupling and extensibility.
 
+Class: LibraryAdapter
+```python
+from domain.library_component import LibraryComponent
+
+class LibraryAdapter(LibraryComponent):
+    def __init__(self, adaptee):
+        self.adaptee = adaptee
+
+    def display(self):
+        # Adapting the LibraryComponent to a different representation
+        return f"Adapted: {self.adaptee.display()}"
+
+```
+Explanation:
+LibraryAdapter demonstrates the Adapter pattern by adapting the LibraryComponent interface to a different representation. It takes an existing LibraryComponent (adapter) and adapts its display method
+
+
+## Output
+```
+Library Contents:
+Book: The Catcher in the Rye by J.D. Salinger
+Book: To Kill a Mockingbird by Harper Lee
+
+Adapted Library Component: 
+Adapted: Book: The Catcher in the Rye by J.D. Salinger 
+```
 ## Conclusion
 
-In summary, the Computer Configuration System project effectively applies the Factory Method for flexible component creation and a variation of the Singleton pattern for centralized instance management. The modular design ensures code flexibility and scalability. While improvements could be made, the project demonstrates the practical benefits of well-utilized design patterns in creating a robust and maintainable software structure.
+In conclusion, the Library Management System project effectively applies the Composite pattern for organizing library components, the Proxy pattern for managing book creation complexity, and the Adapter pattern for adapting the display of library components. The modular design ensures code flexibility, scalability, and maintainability. While improvements could be made, the project demonstrates the practical benefits of well-utilized design patterns in creating a robust library management system.
 
 
