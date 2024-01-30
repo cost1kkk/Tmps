@@ -12,7 +12,7 @@ def main():
     print(f"Author: {book.author}\n")
 
     # Simulate book update
-    book.update_book("Ioan Slavici")
+    book.update_book("I. Slavici")
 
     print("\nAfter Update:")
     print(f"Title: {book.title}")
